@@ -41,6 +41,8 @@ import eli5
 from eli5.sklearn import PermutationImportance
 import lightgbm as lgb
 from boruta import BorutaPy
+import lime
+from lime.lime_tabular import LimeTabularExplainer
 
 #biological sequence analysis
 from Bio import SeqIO
@@ -63,15 +65,13 @@ def plot_correlation(df, figname='corr_prot'):
                     xy=(.1, .9), xycoords=ax.transAxes)
     
     #prepare the seaborn grid and plot
-    g = sns.PairGrid(df.dropna(), palette=["red"], height=2.5, aspect=1)
+    g = sns.PairGrid(df.dropna(), palette=["red"], height=1.8, aspect=1.5)
     g.map_upper(plt.scatter, s=5)
     g.map_diag(sns.distplot, kde=False)
     g.map_lower(sns.kdeplot, cmap="Blues_d")
     g.map_lower(corrfunc)
-    sns.set(font_scale=1.5)
-    plt.savefig(figname+'.png')
-    plt.savefig(figname+'.svg')
-    plt.show()
+    sns.set(font_scale=1.1)
+
 
 #helper function to revert a protein ids to gene ids
 #used with TryTripDB identifiers Treu927
@@ -309,7 +309,7 @@ def heatmap(data, row_labels, col_labels, ax=None,
     ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
     ax.tick_params(which="minor", bottom=False, left=False)
 
-    return im, cbar
+    return im, cbar, ax
 
 
 def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
