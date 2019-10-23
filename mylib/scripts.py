@@ -606,19 +606,19 @@ def plot_confusion_matrix(cm,
 def input_missing_values(in_df, columns):
     for n in tqdm_notebook(columns):
         #capture all the categorical features
+        #if n == 'EF_CellCycle_max':
+            #in_df[n]=in_df[n].replace(np.nan,in_df[n].min()+1)
         if not (n.endswith('_min_max')) and ( n.endswith('_max') or n.endswith('_min')):
-            in_df[n]=in_df[n].replace(np.nan,-999)
+            in_df[n]=in_df[n].replace(np.nan,in_df[n].min()-1)
         else:
             data = in_df[n].replace([np.inf, -np.inf], np.nan)
             data = data.dropna()
             min_data = data.min()
             max_data = data.max()
             ave_data = data.mean()
-            #print(n, min_data,max_data,ave_data)
-
-            in_df[n]=in_df[n].replace(-np.inf, min_data - (min_data * 10) )
-            in_df[n]=in_df[n].replace(np.inf,max_data + (max_data * 10) )
             in_df[n]=in_df[n].replace(np.nan,ave_data)
+            in_df[n]=in_df[n].replace(-np.inf, ave_data)
+            in_df[n]=in_df[n].replace(np.inf, ave_data )
             
 
     return in_df
