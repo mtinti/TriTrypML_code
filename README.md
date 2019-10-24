@@ -2,7 +2,7 @@
 # TriTrypML
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mtinti/TriTrypML_code/master)
-[![DOI](https://zenodo.org/badge/212077588.svg)](https://zenodo.org/badge/latestdoi/212077588)
+[![DOI](https://zenodo.org/badge/217092409.svg)](https://zenodo.org/badge/latestdoi/217092409)
 
 # Multi-omics integrations of dataset deposited at TriTrypDB
 ## Affiliation
