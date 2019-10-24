@@ -1,4 +1,6 @@
 #import libraries
+from itertools import islice
+
 #system
 import warnings
 import os
@@ -52,6 +54,10 @@ import gc
 
 warnings.filterwarnings("ignore")
 
+#split iterable in even chunk size
+def chunk(it, size):
+    it = iter(it)
+    return iter(lambda: tuple(islice(it, size)), ())
 
 #helper function to visualize the correlation between experiments
 def plot_correlation(df, figname='corr_prot'):
