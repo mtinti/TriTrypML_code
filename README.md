@@ -26,4 +26,5 @@ and those deposited at the TryTripDB database.</p>
 
 ### Static versions of the notebooks are avaiable at:
 https://tritrypdb-ml.onrender.com/make_dataset
+
 https://tritrypdb-ml.onrender.com/example_1
