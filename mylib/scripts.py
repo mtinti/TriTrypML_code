@@ -51,7 +51,8 @@ from Bio import SeqIO
 
 #garbage collector
 import gc
-
+#sys.path.append(os.path.realpath(__file__))
+#import make_roc_cv
 warnings.filterwarnings("ignore")
 
 #split iterable in even chunk size
@@ -414,18 +415,24 @@ def impute(X):
         temp[col] = temp[col].replace(np.inf, 999)
     return temp
 
-def run_lgb(X, y, params):
+def run_lgb(X, y, params, test_size=0.35, random_state =1976, plot_roc=True):
     nfold=3
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.35, random_state =1976)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state =random_state, stratify=y)
     train_set = lgb.Dataset(X_train, y_train)
     print('DataSet size')
     print('X_train:',X_train.shape, 
     'X_test:',X_test.shape, 
     'y_train:',y_train.shape, 
-    'y_test',y_test.shape)
+    'y_test',y_test.shape,'\n',
+    y_test.value_counts())
 
     best_scores = []
     optimal_rounds = []
+    
+    
+    
+    fig,ax = plt.subplots()
+    
     for  seed in tqdm_notebook([10, 50, 1976, 2015, 34]):
         cv_results = lgb.cv(params, 
                         train_set, 
@@ -439,7 +446,8 @@ def run_lgb(X, y, params):
         #print(optimal_round)
         best_scores.append(best_score) 
         optimal_rounds.append(optimal_round)
-
+        
+        
 
     best_scores=pd.Series(best_scores)
     best_scores.plot(kind='box')
@@ -464,6 +472,8 @@ def run_lgb(X, y, params):
     dummy = DummyClassifier()
     dummy.fit(X_train, y_train)
     dummy_preds = dummy.predict(X_test)
+    dummy_prob = dummy.predict_proba(X_test)
+    
     dummy_score = roc_auc_score(dummy_preds,y_test)
     print('1 dummy_roc_auc_score:', dummy_score)    
     print('1 blind_roc_auc_score:', blind_score)
@@ -471,6 +481,31 @@ def run_lgb(X, y, params):
 
     print('\nConfusion Matrix')
     print(cm)
+    
+    
+    if plot_roc:
+        #Print Area Under Curve
+        
+        
+        
+        #print(y_test)
+        #print(blind_preds)
+        fig,ax = plt.subplots()
+        false_positive_rate, recall, thresholds = roc_curve(y_test, blind_prb[:,-1])
+        
+        ax.set_title('Receiver Operating Characteristic (ROC)')
+        ax.plot(false_positive_rate, recall, 'b', label = 'Blind AUC = %0.3f' %blind_score)
+        
+        false_positive_rate, recall, thresholds = roc_curve(y_test, dummy_prob[:,-1])
+        ax.plot(false_positive_rate, recall, 'r', label = 'Dummy AUC = %0.3f' %dummy_score)
+        
+        plt.legend(loc='lower right')
+        #plt.plot([0,1], [0,1], 'r--')
+        plt.xlim([-0.1,1.1])
+        plt.ylim([-0.1,1.1])
+        plt.ylabel('True Positive Rate')
+        plt.xlabel('False Positive Rate')
+        plt.show()
 
     #ax= plt.subplot()
     #sns.heatmap(cm, annot=True, ax = ax)
