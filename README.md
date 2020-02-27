@@ -25,6 +25,6 @@ demonstrate the utility of machine learning applied to the analysis of our own O
 and those deposited at the TryTripDB database.</p>
 
 ### Static versions of the notebooks are avaiable at:
-- Make Datase https://tritrypdb-ml.onrender.com/TriTrypDB_ML_1.0.html
+- Make Dataset https://tritrypdb-ml.onrender.com/TriTrypDB_ML_1.0.html
 - Example 1 https://tritrypdb-ml.onrender.com/TriTrypDB_ML_1.1.html
 - Example 2 https://tritrypdb-ml.onrender.com/TriTrypDB_ML_1.2.html
