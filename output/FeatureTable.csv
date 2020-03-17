@@ -1,0 +1,56 @@
+,Feature Name,dataset,PMID,OMICs,description
+0,PCF_vs_BSF_pro,"Gunasekera K et al 2012, Urbaniak 2012, Urbaniak 2013, Butter et al. 2013",22574199;23067041;23485197;26910529,Proteomics,Log2 fold changes between the PCF and BSF Long Slender SILAC intensities are converted to Z-scores and averaged across 4 experiments
+1,PCF_vs_BSFss_pro,Gunasekera K et al 2012,22574199,Proteomics,Log2 fold change between the PCF and BSF Short Stumpy SILAC intensities
+2,CellCycle_max,Crozier TWM 2018,29555687,Proteomics,The time point with the maximum protein abundance during T. brucei PCF cell cycle
+3,CellCycle_min,Crozier TWM 2018,29555687,Proteomics,The time point with the minimum protein abundance during T. brucei PCF cell cycle
+4,CellCycle_min_max,Crozier TWM 2018,29555687,Proteomics,Log2 fold change between the maximum and minimum protein abundance time pointduring T. brucei PCF cell cycle
+5,Abundance_BSF_pro,Tinti M and Güther MLS 2019,31681858,Proteomics,The log10 eXtracted Ion Current (XIC) of the SILAC heavy BSF sample averaged across biological replicates and time points
+6,Abundance_PCF_pro,Tinti M and Güther MLS 2019,31681858,Proteomics,The log10 eXtracted Ion Current (XIC) of the SILAC heavy PCF sample averaged across biological replicates and time points
+7,Apparent_vs_Computed_MW,Crozier TWM 2017,29042480,Proteomics,The log2 fold change between the computed molecular weight and the observedmolecular weight in size exclusion chromatografy of the PCF proteins'
+8,Pro_in_Complex,Crozier TWM 2017,29042480,Proteomics,Binary value describing if a protein was detected (1) or not (0) in a portein complex'
+9,BSF_to_PCF_pro_max_min,"Dejung M, 2016",26910529,Proteomics,Log2 fold change between the maximum and minimum protein abundancetime points during the PCF to BSF differentiation
+10,BSF_to_PCF_pro_max,"Dejung M, 2016",26910529,Proteomics,The time point with the maximum protein abundance during the PCF to BSF differentiation
+11,BSF_to_PCF_pro_min’,"Dejung M, 2016",26910529,Proteomics,The time point with the minimum protein abundance during the PCF to BSF differentiation
+12,BSF_to_PCF_ma1_max_min,"Jensen BC et al, 2009",19840382,Trascriptomics / Microarrays,Log2 fold change between the maximum and minimum mRNA abundancetime points of five different life stages
+13,BSF_to_PCF_ma1_max,"Jensen BC et al, 2009",19840382,Trascriptomics / Microarrays,The time point with the maximum mRNA abundance of five different life stages
+14,BSF_to_PCF_ma1_min,"Jensen BC et al, 2009",19840382,Trascriptomics / Microarrays,The time point with the minimum mRNA abundance of five different life stages
+15,BSF_to_PCF_ma2_max_min,"Queiroz R et al 2009, 2009",19857263,Trascriptomics / Microarrays,Log2 fold change between the maximum and minimum mRNA abundancetime points during the PCF to BSF differentiation
+16,BSF_to_PCF_ma2_max,"Queiroz R et al 2009, 2009",19857263,Trascriptomics / Microarrays,The time point with the maximum mRNA abundance during the PCF to BSF differentiation
+17,BSF_to_PCF_ma2_min,"Queiroz R et al 2009, 2009",19857263,Trascriptomics / Microarrays,The time point with the minimum mRNA abundance during the PCF to BSF differentiation
+18,BSF_to_PCF_ma3_max_min,"Kabani et al, 2009",19747379,Trascriptomics / Microarrays,Log2 fold change between the maximum and minimum mRNA abundancetime points during the BSF to PCF differentiation
+19,BSF_to_PCF_ma3_max,"Kabani et al, 2009",19747379,Trascriptomics / Microarrays,The time point with the maximum mRNA abundance during the BSF to PCF differentiation
+20,BSF_to_PCF_ma3_min,"Kabani et al, 2009",19747379,Trascriptomics / Microarrays,The time point with the minimum mRNA abundance during the BSF to PCF differentiation
+21,ATF_vs_BSF_Rs,"Trindade S, 2016",27237364,Trascriptomics / RNA-seq,Log2 fold changes between the adipose tissue forms (ATF) and the BSF mRNA abundance
+22,Glucose_LSf_vs_SSs,"Qiu Y, 2018",30381351,Trascriptomics / RNA-seq,Log2 fold changes between long slender BSF glucose-fed  and glucose-starved short stumpy BSF
+23,Glucose_SSf_vs_SSs,"Qiu Y, 2018",30381351,Trascriptomics / RNA-seq,Log2 fold changes between glucose-fed  and glucose-stave short stumpy BSF
+24,Glucose_LSf_vs_SSs,"Qiu Y, 2018",30381351,Trascriptomics / RNA-seq,Log2 fold changes between long slender BSF glucose-fed  and glucose-fed short stumpy BSF
+25,CellCycle_Rs_max_min,"Archer SK, 2016",21483801,Trascriptomics / RNA-seq,Log2 fold change between the maximum and minimum mRNA abundancetime points during the PCF Cell Cycle
+26,CellCycle_Rs_max,"Archer SK, 2016",21483801,Trascriptomics / RNA-seq,The time point with the maximum mRNA abundance during the PCF Cell Cycle
+27,CellCycle_Rs_min,"Archer SK, 2016",21483801,Trascriptomics / RNA-seq,The time point with the minimum mRNA abundance during the PCF Cell Cycle
+28,BSF_to_PCF_Rs_max_min,Naguleswaran et al. 2018,29606092,Trascriptomics / RNA-seq,"Log2 fold change between the maximum and minimum mRNA abundanceduring the PCF to BSF differentiation, computed on the sense strand"
+29,BSF_to_PCF_Rs_max,Naguleswaran et al. 2018,29606092,Trascriptomics / RNA-seq,"The time point with the maximum mRNA abundance during the PCF to BSF differentiation, computed on the sense strand"
+30,BSF_to_PCF_Rs_min,Naguleswaran et al. 2018,29606092,Trascriptomics / RNA-seq,"The time point with the minimum mRNA abundance during the PCF to BSF differentiation,
+computed on the sense strand"
+31,Abundance_PCF_RsT,"Vasquez JJ, 2014",24442674,Trascriptomics / RNA-seq,"Log10 FRPKM of mRNA in PCF, sence strand"
+32,Abundance_PCF_RsR,"Vasquez JJ, 2014",24442674,Trascriptomics / RNA-seq,"Log10 FRPKM of Ribosome Profiling in PCF, sence strand"
+33,Abundance_BSF_RsT,"Vasquez JJ, 2014",24442674,Trascriptomics / RNA-seq,"Log10 FRPKM of mRNA in BSF, sence strand"
+34,Abundance_BSF_RsR,"Vasquez JJ, 2014",24442674,Trascriptomics / RNA-seq,"Log10 FRPKM of Ribosome Profiling in BSF, sence strand"
+35,BSF_vs_PCF_RsT,"Vasquez JJ, 2014",24442674,Trascriptomics / RNA-seq,Log2 fold change of mRNA (FRPKM) between BSF and PCF
+36,BSF_vs_PCF_RsR,"Vasquez JJ, 2014",24442674,Trascriptomics / RNA-seq,Log2 fold change ribosome profiling abundance (FRPKM) between BSF and PCF
+41,DHH1_mutant,Kramer S et al. 2010,20124414,Trascriptomics / microarray,The log2 difference in mRNA aboundance between the wild type and DHH1 mutant overexpressing cells
+42,DHH1_induced,Kramer S et al. 2010,20124414,Trascriptomics / microarray,The log2 difference in mRNA aboundance between the wild type and DHH1 overexpressing cells
+43,HeatShock,Kramer S et al. 2009,18713834,Trascriptomics / microarray,The log2 difference in mRNA aboundance between the wild type and  heat shock induced cells
+44,Nuclear,Goos C et al 2017,28727848,Proteomics,Log2 fold change values in protein abundances between purified PCF nuclei and the whole-cell lysates
+45,SF_Ortholog_count,Fischer S et al. 2011,21901743,Sequence Feature,The number Ortholog genes identified in the orthomcl database
+46,SF_Paralog_count,Fischer S et al. 2011,21901743,Sequence Feature,The number Paralog genes identified in the orthomcl database
+47,Sig_Pep,Bendtsen JD et al. 2004,15223320,Sequence Feature,"Avearge of the D and HMM score implemented in the SignalP3-NN alghoritm, precomputed by TriTrypDB team"
+48,Polycistron_Start,na,na,Sequence Feature,Starting point of the gene respect to the policystronic transcript that belongs to
+49,TMD,na,na,Sequence Feature,The number of transmembrane domains divided by the Transcript Length
+50,Transcript_Length,na,na,Sequence Feature,The Log10 of the Transcript Length
+51,SNPs1,Weir et al. 2016,26809473,Sequence Feature,The number of Non-Coding SNPs in all Strains divided by the Transcript Length
+52,SNPs2,Weir et al. 2016,26809473,Sequence Feature,The number of NonSynonymous SNPs in all Strains divided by the Transcript Length
+53,SNPs3,Weir et al. 2016,26809473,Sequence Feature,The number of SNPs with Stop Codons in all Strains divided by the Transcript Length
+54,SNPs4,Weir et al. 2016,26809473,Sequence Feature,The number of Synonymous SNPs in all Strains divided by the Transcript Length
+55,SNPs5,Weir et al. 2016,26809473,Sequence Feature,The Total SNPs in all Strains divided by the Transcript Length
+56,SNPs6,Weir et al. 2016,26809473,Sequence Feature,The ration of NonSyn/Syn SNPs in all Strains
+57,Prot_Coding,Weir et al. 2016,26809473,Sequence Feature,Binary value describing if the gene is protein coding (1) or not (0)
