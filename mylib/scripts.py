@@ -520,11 +520,65 @@ def run_lgb(X, y, params, test_size=0.35, random_state =1976, plot_roc=True):
 
     return fitted_model, params, blind_score
 
-def boruta_select(X, y, params):
+def run_lgb_recursive(X, y, params,test_size,
+                      random_states
+                     ):
+    
+    
+    fig,ax = plt.subplots()
+    ax.set_title('Receiver Operating Characteristic (ROC)')
+    blind_scores = []
+    
+    dummy = DummyClassifier(strategy='uniform')
+    
+    
+    
+    
+    for random_state in tqdm_notebook(random_states):
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=test_size, random_state =random_state, stratify=y)
+        
+        model = lgb.LGBMClassifier(**params,
+                )
+        fitted_model = model.fit(X_train, y_train)
+    
+        blind_preds = fitted_model.predict(X_test)
+        blind_prb = fitted_model.predict_proba(X_test)
+        blind_score = roc_auc_score(blind_preds,y_test)  
+        blind_scores.append(blind_score)
+        false_positive_rate, recall, thresholds = roc_curve(y_test, blind_prb[:,-1])
+        ax.plot(false_positive_rate, recall, 'b', alpha=0.1)
+    
+    ax.plot(false_positive_rate, recall, 'b', alpha=0.1, label='Blind')
+        
+        
+    dummy.fit(X_train, y_train)
+    dummy_prob = dummy.predict_proba(X_test)
+    false_positive_rate, recall, thresholds = roc_curve(y_test, dummy_prob[:,-1])
+    ax.plot(false_positive_rate, recall, 'r', alpha=1, label='Random')
+        
+    ax.set_xlim([-0.1,1.1])
+    ax.set_ylim([-0.1,1.1])
+    ax.set_ylabel('True Positive Rate')
+    ax.set_xlabel('False Positive Rate')
+    plt.legend()
+    
+    leg = plt.legend()
+    for lh in leg.legendHandles: 
+        lh.set_alpha(1)#lh._legmarker.set_alpha(1)
+    
+    plt.show()
+    
+    pd.Series(blind_scores,name='AUC score').plot(kind='box')
+    
+
+
+def boruta_select(X, y, params, print_support=False):
     rf = RandomForestClassifier(**params)
     feat_selector = BorutaPy(rf, n_estimators='auto', verbose=0, random_state=1)
     feat_selector.fit(X.values, y)
-    print(feat_selector.support_)
+    if print_support:
+        print(feat_selector.support_)
 
     score_df = pd.DataFrame()
     #eliDf['fimp']=perm.feature_importances_
